@@ -6,6 +6,7 @@ var sys = require('util')
 var chalk = require('chalk')
 var mkdirp = require('mkdirp')
 var postcss = require('postcss')
+var syntax = require('postcss-less')
 var rtlcss = require('../lib/rtlcss')
 var configLoader = require('../lib/config-loader')
 
@@ -143,7 +144,7 @@ if (!shouldBreak) {
       return
     }
     var result
-    var opt = { map: false }
+    var opt = { map: false, syntax:syntax }
     if (input !== '-') {
       opt.from = input
       opt.to = output
